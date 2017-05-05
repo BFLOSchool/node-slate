@@ -4,9 +4,9 @@
   "description": "Node port of tripit/slate",
   "main": "index.js",
   "scripts": {
+    "clean": "rm -vrf build/*",
     "start": "gulp serve",
-    "build": "gulp",
-    "deploy": "./deploy.sh"
+    "build": "npm run clean && gulp"
   },
   "repository": {
     "type": "git",
