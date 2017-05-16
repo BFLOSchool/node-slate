@@ -1,0 +1,61 @@
+.main {
+    margin-top: 56px;
+    margin-left: $nav-width;
+    position: relative;
+    z-index: 10;
+    background-color: $main-bg;
+    min-height: 100%;
+    padding-bottom: 1px;
+    overflow: hidden;
+
+    @media (max-width: $phone-width) {
+        margin-top: 100px;
+    }
+
+    @media (max-width: $tablet-width) {
+        margin-left: 0;
+    }
+
+    &__documentation {
+
+        @media (max-width: $phone-width) {
+            width: auto;
+        }
+    }
+
+    &__examples {
+        width: $examples-width;
+        background-color: $examples-bg;
+        position: absolute;
+        right: 0;
+        top: 0;
+        bottom: 0;
+
+        @media (max-width: $tablet-width) {
+            display: none;
+        }
+    }
+
+    .lang-selector {
+        position: fixed;
+        z-index: 50;
+        border-bottom: 5px solid $lang-select-active-bg;
+    }
+
+    blockquote,
+    pre {
+        background-color: #292929;
+        color: #FFFFFF;
+        padding: 2em 28px;
+        margin: 0;
+        width: $examples-width;
+        float: right;
+        clear: right;
+        box-sizing: border-box;
+
+        @media (max-width: $tablet-width) {
+            width: 100%;
+            float: none;
+        }
+    }
+}

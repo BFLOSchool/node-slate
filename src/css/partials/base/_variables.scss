@@ -1,0 +1,64 @@
+@import url('http://fonts.googleapis.com/css?family=Montserrat:400,500,600,700');
+
+$nav-bg: #263238 !default;
+$examples-bg: #F1F4F5 !default;
+$code-bg: #292929 !default;
+$code-annotation-bg: #1C1C1C !default;
+$nav-subitem-bg: #263238 !default;
+$nav-active-bg: rgba(255, 255, 255, 0.2) !default;
+$lang-select-border: #000000 !default;
+$lang-select-bg: #222222 !default;
+$lang-select-active-bg: $examples-bg !default; // feel free to change this to blue or something
+$lang-select-pressed-bg: #111111 !default; // color of language tab bg when mouse is pressed
+$main-bg: #FFFFFF !default;
+$aside-notice-bg: #8FBCD4 !default;
+$aside-warning-bg: #C97A7E !default;
+$aside-success-bg: #6AC174 !default;
+$search-notice-bg: #C97A7E !default;
+
+$main-text: #3A3A3A !default; // main content text color
+$nav-text: #FFFFFF !default;
+$nav-active-text: #FFFFFF !default;
+$lang-select-text: #263238 !default; // color of unselected language tab text  #76838F
+$lang-select-active-text: #263238 !default; // color of selected language tab text
+$lang-select-pressed-text: #263238 !default; // color of language tab text when mouse is pressed
+
+$nav-width: 245px !default; // width of the navbar
+$examples-width: 40% !default; // portion of the screen taken up by code examples
+$logo-margin: 20px !default; // margin between nav items and logo, ignored if search is active
+$main-padding: 28px !default; // padding to left and right of content & examples
+$nav-padding: 15px !default; // padding to left and right of navbar
+$nav-v-padding: 10px !default; // padding used vertically around search boxes and results
+$nav-indent: 10px !default; // extra padding for ToC subitems
+$code-annotation-padding: 13px !default; // padding inside code annotations
+$h1-margin-bottom: 21px !default; // padding under the largest header tags
+$tablet-width: 950px !default; // min width before reverting to tablet size
+$phone-width: 675px !default; // min width before reverting to mobile size
+
+%default-font {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans', 'Helvetica Neue', Arial, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', sans-serif;
+}
+
+%header-font {
+    @extend %default-font;
+
+    font-weight: 500;
+}
+
+%code-font {
+    font-family: Inconsolata, Monaco, Consolas, 'Andale Mono', 'Bitstream Vera Sans Mono', 'Courier New', Courier, monospace;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+$nav-active-shadow: #000000 !default;
+$nav-footer-border-color: #666666 !default;
+$nav-embossed-border-top: #000000 !default;
+$nav-embossed-border-bottom: #939393 !default;
+$main-embossed-text-shadow: 0 1px 0 #FFFFFF !default;
+$search-box-border-color: #666666 !default;
+
+%break-words {
+    word-break: break-all;
+    hyphens: auto;
+}

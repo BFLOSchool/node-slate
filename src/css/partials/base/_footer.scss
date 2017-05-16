@@ -1,0 +1,23 @@
+.footer {
+    display: flex;
+    align-items: center;
+    color: #555555;
+    font-size: 12px;
+    font-weight: 500;
+
+    @media screen and (min-width: 675px) {
+        padding: 0 1rem;
+    }
+
+    &__nav {
+        flex-wrap: wrap;
+    }
+
+    &__nav.nav {
+        justify-content: center;
+
+        @media (min-width: 675px) {
+            justify-content: space-between;
+        }
+    }
+}

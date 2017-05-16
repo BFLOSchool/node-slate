@@ -1,74 +1,130 @@
-<p align="center">
-  <img src="https://raw.githubusercontent.com/lord/img/master/logo-slate.png" alt="Slate: API Documentation Generator" width="226">
-</p>
+# Unified API Documentation
 
-<p align="center"><i>A Node.js port of <a href="https://github.com/lord/slate">lord/slate</a></i></p>
+API Doucmentation for Unified
 
-<p align="center">Slate helps you create beautiful, intelligent, responsive API documentation.</p>
+Forked from [Slate](https://github.com/lord/slate)
 
-<p align="center"><img src="https://dl.dropboxusercontent.com/u/95847291/github%20images/slate/slate_screenshot_new.png" width=700 alt="Screenshot of Example Documentation created with Slate"></p>
+## Added Features
+- [x] [NodeJS](https://nodejs.org/en/) (replacing `bundler`)
+- [x] [npm](https://www.npmjs.com/) for dependencies and tools
+- [x] [Gulp](http://gulpjs.com/)
+- [x] [Stylelint](https://stylelint.io) for CSS/SCSS linting (`.stylintrc` could use some work)
+- [x] [BrowserSync](https://browsersync.io/) for using a local server and live reloading
+- [x] [Autoprefixer](https://github.com/postcss/autoprefixer) to handle vendor prefixes
+- [x] [Imagemin](https://github.com/imagemin/imagemin) for minifying and optimizing images
+- [x] Minification (via `htmlmin`, `cssnano`)
+- [x] PostCSS
+    - [autoprefixer](https://github.com/postcss/autoprefixer)
+    - [cssano](http://cssnano.co/)
+    - [stylelint](https://stylelint.io)
+- [x] Sourcemapping for easy debugging
+- [x] `.editorconfig` to help develop consistent coding styles between different editors and IDEs
+- [ ] Improved Caching
 
-<p align="center"><em>The example above was created with Slate. Check it out at <a href="https://lord.github.io/slate">lord.github.io/slate</a>.</em></p>
+*Note*: I'm intentially adding npm scripts for things like `stylelint` and `imagemin` for an easier transition to webpack in the future.
 
-Features
-------------
+## Developing
 
-* **Clean, intuitive design** — With Slate, the description of your API is on the left side of your documentation, and all the code examples are on the right side. Inspired by [Stripe's](https://stripe.com/docs/api) and [Paypal's](https://developer.paypal.com/webapps/developer/docs/api/) API docs. Slate is responsive, so it looks great on tablets, phones, and even in print.
 
-* **Everything on a single page** — Gone are the days when your users had to search through a million pages to find what they wanted. Slate puts the entire documentation on a single page. We haven't sacrificed linkability, though. As you scroll, your browser's hash will update to the nearest header, so linking to a particular point in the documentation is still natural and easy.
-
-* **Slate is just Markdown** — When you write docs with Slate, you're just writing Markdown, which makes it simple to edit and understand. Everything is written in Markdown — even the code samples are just Markdown code blocks.
-
-* **Write code samples in multiple languages** — If your API has bindings in multiple programming languages, you can easily put in tabs to switch between them. In your document, you'll distinguish different languages by specifying the language name at the top of each code block, just like with Github Flavored Markdown.
-
-* **Out-of-the-box syntax highlighting** for [150 languages](https://highlightjs.org/), no configuration required.
-
-* **Automatic, smoothly scrolling table of contents** on the far left of the page. As you scroll, it displays your current position in the document. It's fast, too. We're using Slate at TripIt to build documentation for our new API, where our table of contents has over 180 entries. We've made sure that the performance remains excellent, even for larger documents.
-
-* **Let your users update your documentation for you** — By default, your Slate-generated documentation is hosted in a public Github repository. Not only does this mean you get free hosting for your docs with Github Pages, but it also makes it simple for other developers to make pull requests to your docs if they find typos or other problems. Of course, if you don't want to use GitHub, you're also welcome to host your docs elsewhere.
-
-Getting started with Slate is super easy! Simply fork this repository and follow the instructions below. Or, if you'd like to check out what Slate is capable of, take a look at the [sample docs](http://lord.github.io/slate).
-
-Getting Started with Slate
-------------------------------
-
-### Prerequisites
-
-You're going to need:
-
- - **Node.js**
-
-### Getting Set Up
-
-1. Fork this repository on Github.
-2. Clone *your forked repository* (not our original one) to your hard drive with `git clone https://github.com/YOURUSERNAME/node-slate.git`
-3. `cd node-slate`
-4. Initialize and start Slate:
-
-```shell
-npm install
-npm run build
-npm start
-```
-
-You can now see the docs at http://localhost:4567. Whoa! That was fast!
+### New Developer Setup
+- Install **NodeJS** and make sure `node` and `npm` are on your path
+- Clone this repo `git@bitbucket.org:wad3g/unified-documentation.git`
+- Install dependencies (`npm i`) or `npm run setup` to build the source
+- Install `.editorconfig` and `stylelint` plugins for your editor / IDE.
 
 ### Commands
 
+Install your dependencies and build the source at `./build`
+
+```
+$ npm run setup
+```
+
+Lint your CSS/SCSS
+
+```
+$ npm run stylelint
+```
+
+Minify/optimize your images
+
+```
+$ npm run imagemin
+```
+
+Convert `swagger.json` to markdown and add to newly created file to `src/includes`
+
+```
+$ npm run markdown
+```
+
+Run stylelint and watch for changes (run `npm run serve` to exclude stylinting):
+
+```
+$ npm start
+```
+
 Compile documentation to static site in `./build`:
 
-```shell
-npm run build
+```
+$ npm run build
 ```
 
-Run a dev server that live-reloads at http://localhost:4567:
+## Converting your JSON to Markdown
+In order to build your clean, maintainable, static documentation you need to convert your [Swagger](http://swagger.io/) specification (`json` or `yaml`), which can be viewed via [Swagger UI](http://54.89.99.122:4000/api/swagger/index.html), to [Slate](https://github.com/lord/slate)'s flavor of `markdown`.
 
-```shell
-npm start
-```
+To do so we're using the [swagger-to-slate](https://github.com/lavkumarv/swagger-to-slate) node module (which is now included as a dependency). However, if you'd like to call it by name, via any directory, you may want to install it globally: `npm i -g swagger-to-slate`.
 
-Publish your docs to `origin/gh-pages` branch:
+_See the [swagger-to-slate](https://github.com/lavkumarv/swagger-to-slate) documentation for additional usage and details._
 
-```shell
-npm run deploy
-```
+### Usage
+Download your `swagger.json` and place it in the root directory of your project. Next run `npm run markdown` to convert your file from `.json` to `.md`.
+
+Running `npm run markdown` does several things:
+
+- Converts your `swagger.json` to markdown
+- Outputs the newly generated markdown file as `reference.md` in the `src/inlcudes/` direcory
+    + We output the file as `reference.md` because we must specificy _all_ the projects includes in `index.yml`
+- Deletes the original `swagger.json` file
+
+*Note*: You can still convert any `json` file to markdown using the following command `swagger-to-slate -i ~/location/of/file.json`. Just before sure update `index.yml` and move the converted markdown file to the `src/includes/` directory.
+
+
+### Includes
+Maintaining _all_ of your documentation in one file could become relatively difficult depending on size. Ideally it may be best for each controller to have their own `json` file for maintainability.
+
+### Current includes
+- `main.md`
+- `start.md` - handwritten documentation (needs review + plenty of changes)
+- `reference.md` - swagger generated `json` converted to `markdown`
+- `_errors.md` - leftovers from original slate fork
+
+### Caching
+To ensure end users always see the most recent content, browser caching should be disabled with response headers on the server hosting this single page application. _Only_ setting `<meta http-equiv="expires" content="0">` on the index.html page is typically insufficient since they are often ignored by proxies.
+
+Recommended header:
+`Cache-Control: max-age=0`
+
+If you're hosting via AWS S3 the `Cache-Control: max-age=0` meta header needs set on each bucket individually, unless you've previsouly setup a shared Resource Group for implementing items such as this.
+
+See:
+* http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Expiration.html#expiration-individual-objects
+* https://docs.fastly.com/guides/tutorials/cache-control-tutorial
+
+## Misc
+
+### Potential Domain Names
+##### Beecause Why Not?
+- unified.industries
+- unified.tools
+- unified.guide
+- unified.engineering / unified.engineer
+- unified.how
+- unified.wiki
+
+### TO-DO
+- [ ] Build theme-switcher (Ex. light versus dark themes)
+- [ ] Better documentation
+- [ ] Use only PostCSS + plugins for styles (remove SASS)
+- [ ] Convert styles to mobile first _only_
+- [ ] Migrate to webpack

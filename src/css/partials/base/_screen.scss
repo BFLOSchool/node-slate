@@ -1,0 +1,52 @@
+.toc > ul > li > a > span {
+    float: right;
+    max-height: 90%;
+    overflow: auto;
+    background-color: #2484FF;
+    border-radius: 40;
+    width: 20px;
+}
+
+@media (max-width: $tablet-width) {
+
+    .tocify-wrapper .tocify-item > a {
+        padding-top: 0.3em;
+        padding-bottom: 0.3em;
+    }
+}
+
+@media (max-width: $phone-width) {
+
+    .dark-box {
+        display: none;
+    }
+
+    %left-col {
+        margin-right: 0;
+    }
+
+    .tocify-wrapper .lang-selector {
+        display: block;
+    }
+
+    %right-col {
+        width: auto;
+        float: none;
+    }
+
+    %right-col + %left-col {
+        margin-top: $main-padding;
+    }
+}
+
+.highlight .c,
+.highlight .c1,
+.highlight .cm,
+.highlight .cs {
+    color: #909090;
+}
+
+.highlight,
+.highlight .w {
+    background-color: $code-bg;
+}

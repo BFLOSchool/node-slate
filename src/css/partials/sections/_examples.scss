@@ -1,0 +1,73 @@
+.examples {
+
+    &__lang-selector {
+        background-color: $examples-bg;
+        width: 100%;
+        font-weight: 400;
+        padding: 10px;
+
+        a {
+            display: block;
+            float: left;
+            color: $lang-select-text;
+            text-decoration: none;
+            margin-right: 10px;
+            outline: 0;
+            line-height: 1;
+            font-size: 14px;
+            padding: 10px;
+            text-transform: capitalize;
+
+            &:active,
+            &:focus {
+                background-color: $lang-select-pressed-bg;
+                color: $lang-select-pressed-text;
+            }
+
+            &.active {
+                background-color: #E54C3A;
+                color: #FFFFFF;
+                border-radius: 5px;
+                font-weight: 600;
+            }
+        }
+
+        &:after {
+            content: '';
+            clear: both;
+            display: block;
+        }
+    }
+
+    &.hightlight,
+    blockquote,
+    pre {
+        background-color: $code-bg;
+        color: #FFFFFF;
+        padding: 2em $main-padding;
+        margin: 0;
+        width: $examples-width;
+        float: right;
+        clear: right;
+        box-sizing: border-box;
+
+        @extend %right-col;
+
+        & > {
+
+            p {
+                margin: 0;
+            }
+
+            code {
+                color: #FFFFFF;
+            }
+        }
+
+        a {
+            color: #FFFFFF;
+            text-decoration: none;
+            border-bottom: dashed 1px #CCCCCC;
+        }
+    }
+}

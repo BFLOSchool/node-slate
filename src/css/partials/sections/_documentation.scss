@@ -1,0 +1,106 @@
+.documentation {
+    position: relative;
+    z-index: 30;
+    padding: 20px 0;
+
+    @media (max-width: $phone-width) {
+        font-size: 14px;
+    }
+
+    &:after {
+        content: '';
+        display: block;
+        clear: both;
+    }
+
+    a {
+        color: #5F6467;
+        font-weight: 600;
+        transition: all 0.2s ease-in-out;
+        text-decoration-color: currentColor;
+        text-decoration-skip: ink;
+
+        &:hover,
+        &:active {
+            color: darken(#E54C3A, 10%);
+        }
+    }
+
+    h1 ~ h1 {
+        padding-top: 5vh;
+    }
+
+    & > {
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6,
+        p,
+        table,
+        ul,
+        ol,
+        aside,
+        dl {
+            margin-right: $examples-width;
+            padding: 0 $main-padding;
+            box-sizing: border-box;
+            display: block;
+
+            @extend %left-col;
+
+            @media (max-width: $tablet-width) {
+                margin-right: auto;
+                padding: 0 15px;
+            }
+        }
+
+        h1,
+        h2,
+        div {
+            clear: both;
+        }
+
+        ul,
+        ol {
+            padding-left: $main-padding + 75px;
+        }
+    }
+
+    li {
+        list-style-type: disc;
+    }
+
+    h1:first-child,
+    div:first-child + h1 {
+        border-top-width: 0;
+        margin-top: 0;
+    }
+
+    aside {
+        padding-top: 1em;
+        padding-bottom: 1em;
+        margin-top: 1.5em;
+        margin-bottom: 1.5em;
+        background: $aside-notice-bg;
+        line-height: 1.6;
+
+        &:before {
+            vertical-align: middle;
+            padding-right: 0.5em;
+            font-size: 14px;
+        }
+
+        &.warning {
+            background-color: $aside-warning-bg;
+            text-shadow: 0 1px 0 lighten($aside-warning-bg, 15%);
+        }
+
+        &.success {
+            background-color: $aside-success-bg;
+            text-shadow: 0 1px 0 lighten($aside-success-bg, 15%);
+        }
+    }
+}

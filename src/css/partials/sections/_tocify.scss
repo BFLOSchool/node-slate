@@ -1,0 +1,119 @@
+.tocify-wrapper {
+    transition: left 0.3s ease-in-out;
+    overflow-x: auto;
+    overflow-y: hidden;
+    max-height: 90%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: $nav-width;
+    background-color: $nav-bg;
+    font-size: 13px;
+    font-weight: 500;
+    margin-top: 56px;
+    z-index: 9999;
+
+    @media (max-width: $phone-width) {
+        margin-top: 80px;
+    }
+
+    @media (max-width: $tablet-width) {
+        left: -100%;
+
+        &.open {
+            left: 0;
+            width: 65%;
+            min-height: 100vh;
+            transition: left 0.3s ease-out;
+        }
+    }
+
+    .lang-selector {
+        display: none;
+
+        a {
+            padding-top: 0.5em;
+            padding-bottom: 0.5em;
+        }
+
+        .tocify {
+            margin-top: $logo-margin;
+        }
+    }
+
+    .tocify-item > a,
+    .toc-footer li {
+        padding: 0 $nav-padding 0 $nav-padding;
+        display: block;
+        overflow-x: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+
+    .tocify-item > a {
+        font-size: 18px;
+        font-weight: 400;
+        line-height: 46px;
+        color: rgba(163, 175, 183, 0.9);
+
+        @media (max-width: $tablet-width) {
+            font-size: 16px;
+        }
+
+        @media (max-width: $phone-width) {
+            font-size: 14px;
+        }
+    }
+
+    .tocify-focus {
+        background-color: rgba(255, 255, 255, 0.2);
+        color: $nav-active-text;
+
+        & > a {
+            color: $nav-active-text;
+        }
+    }
+
+    .tocify-subheader {
+        display: none;
+        background-color: $nav-subitem-bg;
+        font-weight: 500;
+
+        .tocify-item > a {
+            padding-left: $nav-padding + $nav-indent;
+            font-size: 13px;
+            line-height: 3;
+            font-weight: 500;
+        }
+
+        & > li:last-child {
+            box-shadow: none;
+        }
+    }
+
+    .toc-footer {
+        padding: 1em 0;
+        margin-top: 1em;
+        border-top: 1px solid darken($nav-bg, 5%);
+
+        li,
+        a {
+            color: $nav-text;
+            text-decoration: none;
+        }
+
+        a {
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        li {
+            font-size: 0.8em;
+            line-height: 1.7;
+            text-decoration: none;
+        }
+    }
+}
